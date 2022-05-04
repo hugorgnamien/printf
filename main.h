@@ -1,12 +1,26 @@
+#ifndef MAIN_H
+#define MAIN_H
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <string.h>
+/**
+ * struct func_type - type structure
+ * @t: pointer to the argument
+ * @f: pointer-function associated with the argument
+ */
+typedef struct func_type
+{
+char *t;
+int (*f)(va_list);
+} func_t;
+int (*get_func(const char *format))(va_list);
 int _putchar(char c);
-int _isupper(int c);
-int _isdigit(int c);
-int mul(int a, int b);
-void print_numbers(void);
-void print_most_numbers(void);
-void more_numbers(void);
-void print_line(int n);
-void print_diagonal(int n);
-void print_square(int size);
-void print_triangle(int size);
-void print_number(int n);
+int _printf(const char *format, ...);
+int print_str(va_list args);
+int print_char(va_list args);
+int print_pct(va_list args);
+int print_dec(va_list args);
+#endif
